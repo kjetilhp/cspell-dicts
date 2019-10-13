@@ -1,0 +1,46 @@
+{
+  "name": "cspell-dict-nb-no",
+  "version": "1.0.0",
+  "description": "Norwegian dictionary for cspell. -- Private until verified",
+  "private": true,
+  "bin": {
+    "cspell-dict-nb-no-link": "./link.js",
+    "cspell-dict-nb-no-unlink": "./unlink.js"
+  },
+  "scripts": {
+    "build": "cspell-tools compile-trie \"nb_NO.dic\" -o .",
+    "test": "head -n 100 \"nb_NO.dic\" | cspell -v -c ./cspell-ext.json \"--local=nb,nb_NO\" \"--languageId=*\" stdin",
+    "cspell-link": "node link.js",
+    "cspell-unlink": "node unlink.js",
+    "prepare": "cp ../../util/* . && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/streetsidesoftware/cspell-dicts.git"
+  },
+  "keywords": [
+    "cspell",
+    "nb_NO",
+    "Norwegian",
+    "dictionary",
+    "spelling"
+  ],
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "author": "Jason Dent",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/streetsidesoftware/cspell-dicts/issues"
+  },
+  "homepage": "https://github.com/streetsidesoftware/cspell-dicts/blob/master/packages/nb_NO#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "configstore": "^4.0.0"
+  },
+  "files": [
+    "nb_NO.trie.gz",
+    "cspell-ext.json",
+    "*.js",
+    "*.d.ts"
+  ]
+}
